@@ -1,0 +1,33 @@
+<h1><%= @view.title %></h1>
+<p><%= @view.greeting %></p>
+
+<h2>recipe list</h2>
+<table>
+  <tr>
+    <th>title</th>
+    <th>prep time</th>
+  </tr>
+  <% @view.recipes.each do |recipe| %>
+    <tr>
+      <td><%= recipe[:title] %></td>
+      <td><%= recipe[:prep_time] %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>ingredients</h2>
+<table>
+  <tr>
+    <% @view.ingredient_attrs.each do |attr| %>
+      <th><%= attr %></th>
+    <% end %>
+  </tr>
+  <% @view.ingredients.each do |ingredient| %>
+    <tr>
+      <% @view.ingredient_attrs.each do |attr| %>
+        <td><%= ingredient.send(attr) %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
