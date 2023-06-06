@@ -1,0 +1,21 @@
+<h2><%= @view.title %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <% @view.ingredient_attrs.each do |attr| %>
+        <th><%= attr %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @view.ingredients.each do |ingredient| %>
+      <tr>
+        <% @view.ingredient_attrs.each do |attr| %>
+          <td><%= ingredient.send(attr) %></td>
+        <% end %>
+        <td><%= link_to("view", "ingredients/#{ingredient.id}") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
